@@ -69,7 +69,7 @@ function numberToWords(inputNumber) {
   if (isNaN(inputNumber)) throw new Error("Not A Number");
   if (!Number.isInteger(inputNumber)) throw new Error("Not An Integer");
   if (inputNumber > Number.MAX_SAFE_INTEGER) throw new Error("Number Is Too Large for JS :(");
-
+  
   if(inputNumber === 0) return 'zero'
   let numberStr = inputNumber.toString();
   let numberInWords = "";

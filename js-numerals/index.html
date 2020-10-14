@@ -4,12 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Numbers To Words</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f3f3f3;
+        height: 97vh;
+      }
+      .container {
+        width: 60vw;
+        height: 50vh;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 8px;
+      }
+      .container input {
+        width: 70%;
+        font-size: large;
+        padding: 5px 15px;
+      }
+      .top, .bot {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .bot p {
+        padding: 20px;
+        font-size: x-large;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
-    <label for="number">Number</label>
-    <input type="text" name="number" id="number" autofocus />
-    <p id="words"></p>
-    <p id="error"></p>
+    <div class="container">
+      <div class="top">
+        <h1>Number To Word</h1>
+        <input
+          type="number"
+          name="number"
+          id="number"
+          autofocus
+          placeholder="I.e. 12345"
+        />
+      </div>
+      <div class="bot">
+        <p id="words"></p>
+        <p id="error"></p>
+      </div>
+    </div>
   </body>
   <script src="index.js"></script>
 </html>
