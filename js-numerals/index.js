@@ -70,46 +70,47 @@ function numberToWords(inputNumber) {
   if (!Number.isInteger(inputNumber)) throw new Error("Not An Integer");
 
   let numberInWords = "";
-  if (inputNumber < 20) {
-    numberInWords = onesAndTeens[inputNumber];
-  } else if (inputNumber >= 20 && inputNumber < 100) {
-    let digitStr = inputNumber.toString();
-
-    let one = digitStr[1];
-    let ten = digitStr[0];
-
-    if (onesAndTeens[one]) {
-      numberInWords = tens[ten] + "-" + onesAndTeens[one];
-    } else {
-      numberInWords = tens[ten];
-    }
-  } else if (inputNumber >= 100 && inputNumber < 1000) {
-    let digitStr = inputNumber.toString();
-
-    let hund = digitStr[0];
-    let tenn = parseInt(digitStr[1] + digitStr[2]);
-
-    let tensToWord = ''
-    if (tenn < 20) {
-      tensToWord = onesAndTeens[tenn];
-    } else if (tenn >= 20 && tenn < 100) {
-      let digitStr = tenn.toString();
-  
-      let one = digitStr[1];
-      let ten = digitStr[0];
-  
-      if (onesAndTeens[one]) {
-        tensToWord = tens[ten] + "-" + onesAndTeens[one];
-      } else {
-        tensToWord = tens[ten];
-      }
-    }
-
-    let hundToWord = onesAndTeens[hund];
-
-    numberInWords = hundToWord + " hundred " + tensToWord;
-
+  if(inputNumber < 1000) {
+    numberInWords = threeDigitAnalysis(inputNumber)
   }
 
   return numberInWords;
+}
+
+function threeDigitAnalysis(threeDigit) {
+  let number = parseInt(threeDigit);
+
+  if (number === 0) return "zero";
+  if (number < 20) return teensToWord(number);
+  if (number < 100) return twoDigitToWord(number);
+  if (number < 1000) return threeDigitToWord(number);
+}
+
+function teensToWord(twoDigit) {
+  if (twoDigit < 20) return onesAndTeens[twoDigit];
+}
+
+function twoDigitToWord(twoDigit) {
+  let digitStr = twoDigit.toString();
+
+  if (twoDigit < 20) return teensToWord(twoDigit);
+
+  let one = parseInt(digitStr[1]);
+  let ten = parseInt(digitStr[0]);
+
+  return onesAndTeens[one] ? tens[ten] + "-" + onesAndTeens[one] : tens[ten];
+}
+
+function threeDigitToWord(threeDigit) {
+  let digitStr = threeDigit.toString();
+
+  let hund = digitStr[0];
+  let ten = parseInt(digitStr[1] + digitStr[2]);
+
+  let tensToWord = twoDigitToWord(ten);
+  let hundToWord = onesAndTeens[hund];
+
+  if (!hundToWord) return tensToWord;
+  if (!tensToWord) return hundToWord + " hundred";
+  return hundToWord + " hundred " + tensToWord;
 }
