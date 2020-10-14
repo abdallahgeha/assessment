@@ -1,0 +1,14 @@
+{
+  "name": "js-numerals",
+  "version": "1.0.0",
+  "description": "assessment for Digital Natives",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Abdallah Geha",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^8.1.3"
+  }
+}
