@@ -3,7 +3,14 @@ const numberInWordsField = document.querySelector("#words");
 const errorTextField = document.querySelector("#error");
 
 numberInput.addEventListener("input", (event) => {
+  if (event.target.value == "") {
+    numberInWordsField.textContent = "";
+    errorTextField.textContent = "";
+    return;
+  }
+
   let inputNumber = Number(event.target.value);
+  console.log(inputNumber);
   let negative = "";
 
   try {
@@ -13,9 +20,9 @@ numberInput.addEventListener("input", (event) => {
     }
     const output = functions.numberToWords(inputNumber);
     numberInWordsField.textContent = negative + output;
-    errorTextField.innerText = "";
+    errorTextField.textContent = "";
   } catch (error) {
     numberInWordsField.textContent = "";
-    errorTextField.innerText = error.message;
+    errorTextField.textContent = error.message;
   }
 });
