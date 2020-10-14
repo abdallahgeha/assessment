@@ -15,10 +15,63 @@ numberInput.addEventListener("change", (event) => {
   }
 });
 
+const onesAndTeens = [
+  "",
+  "one",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+  "seven",
+  "eight",
+  "nine",
+  "ten",
+  "eleven",
+  "twelve",
+  "thirteen",
+  "forteen",
+  "fifteen",
+  "sixteen",
+  "seventeen",
+  "eighteen",
+  "nineteen",
+];
+
+const tens = [
+  "",
+  "ten",
+  "twenty",
+  "thirty",
+  "forty",
+  "fifty",
+  "sixty",
+  "seventy",
+  "eighty",
+  "ninety",
+];
+
+const mills = [
+  "",
+  "thousand",
+  "million",
+  "billion",
+  "trillion",
+  "quadrillion",
+  "quintillion",
+  "sextillion",
+  "septillion",
+  "octillion",
+  "nonillion",
+];
+
 function numberToWords(inputNumber) {
   if (isNaN(inputNumber)) throw new Error("Not A Number");
   if (!Number.isInteger(inputNumber)) throw new Error("Not An Integer");
-
-  let numberInWords = inputNumber.toString();
+  
+  let numberInWords = "";
+  if (inputNumber < 20) {
+    numberInWords = onesAndTeens[inputNumber]
+  }
   return numberInWords;
 }
