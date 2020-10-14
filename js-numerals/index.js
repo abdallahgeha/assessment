@@ -79,10 +79,36 @@ function numberToWords(inputNumber) {
     let ten = digitStr[0];
 
     if (onesAndTeens[one]) {
-      return tens[ten] + "-" + onesAndTeens[one];
+      numberInWords = tens[ten] + "-" + onesAndTeens[one];
     } else {
-      return tens[ten];
+      numberInWords = tens[ten];
     }
+  } else if (inputNumber >= 100 && inputNumber < 1000) {
+    let digitStr = inputNumber.toString();
+
+    let hund = digitStr[0];
+    let tenn = parseInt(digitStr[1] + digitStr[2]);
+
+    let tensToWord = ''
+    if (tenn < 20) {
+      tensToWord = onesAndTeens[tenn];
+    } else if (tenn >= 20 && tenn < 100) {
+      let digitStr = tenn.toString();
+  
+      let one = digitStr[1];
+      let ten = digitStr[0];
+  
+      if (onesAndTeens[one]) {
+        tensToWord = tens[ten] + "-" + onesAndTeens[one];
+      } else {
+        tensToWord = tens[ten];
+      }
+    }
+
+    let hundToWord = onesAndTeens[hund];
+
+    numberInWords = hundToWord + " hundred " + tensToWord;
+
   }
 
   return numberInWords;
