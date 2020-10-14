@@ -4,10 +4,15 @@ const errorTextField = document.querySelector("#error");
 
 numberInput.addEventListener("change", (event) => {
   let inputNumber = Number(event.target.value);
+  let negative = ''
 
   try {
+    if(inputNumber < 0) {
+      inputNumber = Math.abs(inputNumber);
+      negative = 'negative '
+    }
     const output = numberToWords(inputNumber);
-    numberInWordsField.textContent = output;
+    numberInWordsField.textContent = negative + output;
     errorTextField.innerText = "";
   } catch (error) {
     numberInWordsField.textContent = "";
@@ -58,20 +63,28 @@ const mills = [
   "billion",
   "trillion",
   "quadrillion",
-  "quintillion",
-  "sextillion",
-  "septillion",
-  "octillion",
-  "nonillion",
 ];
 
 function numberToWords(inputNumber) {
   if (isNaN(inputNumber)) throw new Error("Not A Number");
   if (!Number.isInteger(inputNumber)) throw new Error("Not An Integer");
+  if (inputNumber > Number.MAX_SAFE_INTEGER) throw new Error("Number Is Too Large for JS :(");
 
+  if(inputNumber === 0) return 'zero'
+  let numberStr = inputNumber.toString();
   let numberInWords = "";
-  if(inputNumber < 1000) {
-    numberInWords = threeDigitAnalysis(inputNumber)
+  let magnitude = 0;
+
+  while (numberStr.length > 0) {
+    let lastThreeDigit = numberStr.substring(numberStr.length - 3);
+    let concat = threeDigitAnalysis(lastThreeDigit);
+
+    numberInWords = (concat && concat !== 'zero')
+      ? concat + " " + mills[magnitude] + " " + numberInWords
+      : numberInWords;
+
+    numberStr = numberStr.slice(0, -3);
+    magnitude++;
   }
 
   return numberInWords;
@@ -87,7 +100,7 @@ function threeDigitAnalysis(threeDigit) {
 }
 
 function teensToWord(twoDigit) {
-  if (twoDigit < 20) return onesAndTeens[twoDigit];
+  return onesAndTeens[twoDigit];
 }
 
 function twoDigitToWord(twoDigit) {
