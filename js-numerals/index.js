@@ -68,10 +68,22 @@ const mills = [
 function numberToWords(inputNumber) {
   if (isNaN(inputNumber)) throw new Error("Not A Number");
   if (!Number.isInteger(inputNumber)) throw new Error("Not An Integer");
-  
+
   let numberInWords = "";
   if (inputNumber < 20) {
-    numberInWords = onesAndTeens[inputNumber]
+    numberInWords = onesAndTeens[inputNumber];
+  } else if (inputNumber >= 20 && inputNumber < 100) {
+    let digitStr = inputNumber.toString();
+
+    let one = digitStr[1];
+    let ten = digitStr[0];
+
+    if (onesAndTeens[one]) {
+      return tens[ten] + "-" + onesAndTeens[one];
+    } else {
+      return tens[ten];
+    }
   }
+
   return numberInWords;
 }
