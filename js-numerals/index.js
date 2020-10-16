@@ -10,7 +10,6 @@ numberInput.addEventListener("input", (event) => {
   }
 
   let inputNumber = Number(event.target.value);
-  console.log(inputNumber);
   let negative = "";
 
   try {
