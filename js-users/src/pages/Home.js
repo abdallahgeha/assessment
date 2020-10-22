@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Pagination from "../components/pagination/Pagination";
 import Users from "../components/users/Users";
+import './pages.css';
 
 const Home = () => {
   const usersURL = "http://js-assessment-backend.herokuapp.com/users.json";

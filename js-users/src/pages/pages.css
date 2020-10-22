@@ -1,0 +1,10 @@
+.page {
+  width: 97vw;
+  background: #fff;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
