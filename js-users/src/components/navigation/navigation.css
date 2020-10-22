@@ -1,14 +1,19 @@
 nav {
   height: 80px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgb(63, 63, 63);
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 nav * {
   padding: 20px;
   text-decoration: none;
-  color: #000;
+  color: rgb(255, 255, 255);
   font-size: large;
   font-weight: bold;
 }

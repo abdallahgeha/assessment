@@ -4,8 +4,8 @@ import './pagination.css';
 
 const Pagination = ({ page, lastPage, setPage }) => {
   const goToFirstPage = () => page > 2 && setPage(1);
-  const goToPreviousPage = () => page > 1 && setPage((page) => page - 1);
-  const goToNextPage = () => page < lastPage - 1 && setPage((page) => page + 1);
+  const goToPreviousPage = () => page > 1 && setPage(page - 1);
+  const goToNextPage = () => page < lastPage - 1 && setPage(page + 1);
   const goToLastPage = () => page < lastPage - 2 && setPage(lastPage);
 
   return (

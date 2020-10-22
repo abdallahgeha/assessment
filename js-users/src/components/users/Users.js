@@ -14,7 +14,7 @@ const Users = ({ id, firstName, lastName, date, status }) => {
   };
 
   const handleNameClick = () => {
-    history.push(`/edit/${id}`);
+    history.push(`/users/${id}`);
   };
 
   const formatDate = (date) => {

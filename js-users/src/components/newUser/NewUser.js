@@ -5,7 +5,6 @@ import "./newUser.css";
 const userURL = "http://js-assessment-backend.herokuapp.com/users";
 
 const NewUser = ({ update = false }) => {
-  console.log(update)
   const history = useHistory();
   const { id } = useParams();
   const [firstName, setFirstName] = useState("");

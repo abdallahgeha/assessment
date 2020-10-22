@@ -39,8 +39,8 @@
   cursor: pointer;
 }
 
-.errorMsg {
-  color: red;
-  font-size: 14px;
-  font-weight: bold;
+@media only screen and (max-device-width: 920px) {
+  .newUser {
+    width: 98%;
+  }
 }

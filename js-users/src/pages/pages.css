@@ -1,9 +1,9 @@
 .page {
-  width: 97vw;
+  margin-top: 80px;
   background: #fff;
   display: flex;
   flex-flow: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   padding: 10px;
   margin-bottom: 20px;

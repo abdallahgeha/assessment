@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Pagination from "../components/pagination/Pagination";
 import Users from "../components/users/Users";
+import SkeletonUser from '../components/skeletonUser/SkeletonUser'
 import './pages.css';
 
 const Home = () => {
@@ -37,6 +38,9 @@ const Home = () => {
             status={user.status}
           />
         ))}
+
+        {users.length === 0 &&
+        [1,2,3,4,5,6,7].map((num) => <SkeletonUser key={num}/>) }
     </div>
   );
 };
