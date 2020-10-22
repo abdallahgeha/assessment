@@ -1,0 +1,46 @@
+.newUser {
+  padding: 20px;
+  width: 50%;
+  height: 250px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+
+}
+
+.newUser>input,
+.newUser>span {
+  margin-bottom: 10px;
+  width: 80%;
+  height: 40px;
+}
+
+.newUser span {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.newUser h4 {
+  margin-left: 15px;
+}
+
+.newUser button {
+  font-size: 18px;
+  padding: 5px;
+  width: 25%;
+  background: rgb(12, 105, 12);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+}

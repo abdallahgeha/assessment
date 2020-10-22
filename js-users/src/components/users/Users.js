@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import classNames from "classnames";
+import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./users.css";
 
-const Users = ({ firstName, lastName, date, status }) => {
+const Users = ({ id, firstName, lastName, date, status }) => {
   const lockStatus = status === "active" ? false : true;
   const [lock, setLock] = useState(lockStatus);
+  const history = useHistory();
 
   const handleLock = async () => {
     setLock((lock) => !lock);
   };
 
-  const handleNameClick = () => {};
+  const handleNameClick = () => {
+    history.push(`/edit/${id}`);
+  };
 
   const formatDate = (date) => {
     const formatedData = date.replace("T", " ").substring(0, date.length - 8);
