@@ -1,0 +1,49 @@
+.users {
+  height: 100px;
+  width: 50%;
+  background: white;
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.userinfo p {
+  color: darkgray;
+  font-size: 11px;
+}
+
+.users h2 {
+  cursor: pointer;
+}
+
+.users h2.crossedOut {
+  text-decoration: line-through;
+}
+
+.users .lockBtn {
+  height: 60px;
+  width: 60px;
+  background: #000;
+  border: solid black 2px;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.users .lockBtn.locked {
+  background: #fff;
+}
+
+.users .lockBtn * {
+  color: white;
+}
+
+.users .lockBtn.locked * {
+  color: black;
+}
